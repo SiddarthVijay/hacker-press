@@ -4,6 +4,8 @@ import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import {
   ApolloProvider,
   ApolloClient,
@@ -35,9 +37,11 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 serviceWorker.unregister();
